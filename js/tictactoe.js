@@ -73,6 +73,7 @@ function placeXOrO(squareNumber) {
 //This function parses the selectedSquares array to search for win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
+    console.log("hello from check win conditions");
     // X 0,1,2 condition.
     if      (arrayIncludes('0X', '1X', '2X')){drawWinLine(50,100,558,100); }
     // X 3,4,5 condition
@@ -88,6 +89,7 @@ function checkWinConditions() {
     // X 6,4,2 condition
     else if (arrayIncludes('6X', '4X', '2X')){drawWinLine(100,508,510,90); }
     // X 0,4,8 condition
+    else if (arrayIncludes('0X', '4X', '8X')){drawWinLine(100,100,520,520); }
     else if (arrayIncludes('0O', '1O', '2O')){drawWinLine(50,304,558,304); }
     else if (arrayIncludes('3O', '4O', '5O')){drawWinLine(50,304,558,304); }
     // O 6,7,8 condition
@@ -208,17 +210,20 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     //Then, clears canvas, resets game, and allows clicking again.
     setTimeout(function () { clear(); resetGame(); }, 1000);
 
-
+    console.log("hello");
     //This function resets the game in a tie or a win.
-    function resetGame() {
-        //This for loop iterattes through each HTML square element.
-        for(let i=0; i<9; i++) {
-            //This variable gets the html element of i.
-            let square = document.getElementById(String(i));
-            //This removes our elements backgroundImage.
-            square.style.backgroundImage = '';
-        }
-        //This resets our array so it is empty and we can start over.
-        selectedSquares = [];
+    
+}
+
+function resetGame() {
+    //This for loop iterattes through each HTML square element.
+    for(let i=0; i<9; i++) {
+        //This variable gets the html element of i.
+        let square = document.getElementById(String(i));
+        //This removes our elements backgroundImage.
+        square.style.backgroundImage = '';
     }
+    //This resets our array so it is empty and we can start over.
+    selectedSquares = [];
+    console.log("hello");
 }
